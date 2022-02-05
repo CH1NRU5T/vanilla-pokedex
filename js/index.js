@@ -1,4 +1,24 @@
 // const pokemons = ["Bulbasaur", "Ivysaur", "Venusaur", "Charmander"];
+const typesColorMap = {
+  grass: "#78C850",
+  fire: "#F08030",
+  bug: "#A8B820",
+  normal: "#A8A878",
+  water: "#6890F0",
+  electric: "#F8D030",
+  ice: "#98D8D8",
+  fighting: "#C03028",
+  poison: "#A040A0",
+  ground: "#E0C068",
+  flying: "#A890F0",
+  psychic: "#F8C0B0",
+  rock: "#B8A038",
+  ghost: "#705898",
+  dark: "#705848",
+  dragon: "#7038F8",
+  steel: "#B8B8D0",
+  fairy: "#F0B6BC",
+};
 const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 function updateUI(pokemons) {
   let container = document.querySelector("#container");
@@ -31,6 +51,7 @@ function updateUI(pokemons) {
 
     type.innerText = "Type: \n";
     types.then((typesArr) => {
+      card.style.backgroundColor = typesColorMap[typesArr[0].type.name];
       for (var i = 0; i < typesArr.length; i++) {
         var lowName =
           typesArr[i].type.name.charAt(0).toUpperCase() +
@@ -42,6 +63,7 @@ function updateUI(pokemons) {
     imageDiv.appendChild(image);
     card.appendChild(imageDiv);
     card.appendChild(name);
+    // console.log(typesColorMap["green"]);
     card.appendChild(type);
     container.appendChild(card);
   });
