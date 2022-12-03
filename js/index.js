@@ -90,7 +90,7 @@ function firstLetterCapital(str) {
 }
 
 function renderData() {
-  const pokemons = getData(baseUrl + "?limit=101").then((result) => {
+  const pokemons = getData(baseUrl + "?limit=151").then((result) => {
     return result.results;
   });
   pokemons.then((data) => updateUI(data));
